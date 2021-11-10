@@ -21,4 +21,10 @@ Linear Speed -1000
 Linear Acceleration -1000
 Turn Speed 200
 Turn Acceleration 200
+
+Drive Base:
+Left Drive Motor
+Right Drive Motor
+Wheel Diameter 60.2
+Axle Track 180.5  
   
