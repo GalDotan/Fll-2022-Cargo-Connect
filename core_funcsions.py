@@ -31,7 +31,7 @@ robot.settings(-1000,-1000, 200, 200)
 
 def Line_Following(distance):
     ev3.speaker.beep()
-    #angles = distance x 360
+    #angles = distance x  360 #converting rotations to degres
     BLACK = 4
     WHITE = 46
     DRIVE_SPEED = -250
