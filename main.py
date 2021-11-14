@@ -14,7 +14,7 @@ from pybricks.media.ev3dev import SoundFile, ImageFile
 
 
 
-from core_funcsions import *
+from core_funcsions import *ד
 
 #robot.straight(-100)
-Line_Following(2.5)
+#Line_Following(2.5)
