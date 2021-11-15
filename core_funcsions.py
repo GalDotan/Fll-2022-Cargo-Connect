@@ -52,11 +52,11 @@ def Line_Following(distance):
 def Gyro_Stright(distance_gyro):
     ev3.speaker.beep()
     degres = distance_gyro*-360
-    Gyroboy.reset_angle(0)
-    reset()
+    Gyroboy.reset_angle(0)    
     while LLM.angle() >= degres:
         correction = (0 - Gyroboy.angle())*2.5
-        robot.drive(-250,correction)
+        correction = correction*-1
+        robot.drive(-250, correction)
     ev3.speaker.beep()
     robot.stop
     
@@ -64,32 +64,33 @@ def Gyro_Stright(distance_gyro):
 
 
 
-def PID_Line_Following(PID_distance):
-    ev3.speaker.beep()
+
+#def PID_Line_Following(PID_distance):
+    #ev3.speaker.beep()
     #degres = PID_distance*-360
-    Target = 42
-    Error = 0
-    Intgral = 0
-    Last_Error = 0
-    Derivative = 0
-    Turn_Rate = 0
-    Drive_Speed = -100
-    KP = 0
-    KI = 0
-    KD = 0
-    Kp = 1.2
-    Ki = 0
-    Kd = 0
-    while True:
-        Target-Colorboy_left.reflection() = Error
-        Intgral+Error = Intgral
-        Error-Last_Error = Derivative
-        Error*Kp = KP 
-        Intgral*Ki = KI
-        Derivative*Kd = KD
-        KP+KI+KD = Turn_Rate
-        robot.drive(Drive_Speed , Turn_Rate)
-        Last_Error = Error
-    robot.stop()
-    ev3.speaker.beep()
+    #Target = 42
+    #Error = 0
+    #Intgral = 0
+    #Last_Error = 0
+    #Derivative = 0
+    #Turn_Rate = 0
+    #Drive_Speed = -100
+    #KP = 0
+    #KI = 0
+    #KD = 0
+    #Kp = 1.2
+    #Ki = 0
+    #Kd = 0
+    #while True:
+        #Target - Colorboy_left.reflection() = Error
+        #Intgral+Error = Intgral
+        #Error-Last_Error = Derivative
+        #Error*Kp = KP 
+        #Intgral*Ki = KI
+        #Derivative*Kd = KD
+        #KP+KI+KD = Turn_Rate
+        #robot.drive(Drive_Speed , Turn_Rate)
+        #Last_Error = Error
+    #robot.stop()
+    #ev3.speaker.beep()
         
