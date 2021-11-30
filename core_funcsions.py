@@ -53,9 +53,9 @@ def Gyro_Stright(distance_gyro):
     ev3.speaker.beep()
     degres = distance_gyro*-360
     RLM.reset_angle(0)
-    Gyroboy.reset_angle(0)    
+    Gyrogirl.reset_angle(0)    
     while RLM.angle() >= degres:
-        correction = (0 - Gyroboy.angle())*2.5
+        correction = (0 - Gyrogirl.angle())*2.5
         correction = correction*-1
         robot.drive(-250, correction)
     ev3.speaker.beep()
@@ -101,20 +101,27 @@ def PID_Line_Following(Kp , Ki , Kd):
 
 def Gyro_Turn_Right(angle):
     ev3.speaker.beep()
-    Gyroboy.reset_angle(0)
-    while Gyroboy.angle() >= angle:
-        LLM.run(100)
+    Gyrogirl.reset_angle(0)
+    while Gyrogirl.angle() >= angle:
+        LLM.run(120)
+        RLM.run(-120)
+    RLM.brake()
+    LLM.brake()
     robot.stop()
     ev3.speaker.beep()
 
 
 def Gyro_Turn_Left(angle):
     ev3.speaker.beep()
-    Gyroboy.reset_angle(0)
-    while Gyroboy.angle() <= angle:
-        RLM.run(100)
+    Gyrogirl.reset_angle(0)
+    while Gyrogirl.angle() <= angle:
+        RLM.run(120)
+        LLM.run(-120)
+    RLM.brake()
+    LLM.brake()
     robot.stop()
     ev3.speaker.beep()
+
 
 
 
