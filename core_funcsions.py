@@ -29,26 +29,6 @@ robot.settings(-1000,-1000, 200, 200)
 
 
 
-def Line_Following(distance):
-    ev3.speaker.beep()
-    angles = distance*-360 
-    BLACK = 4
-    WHITE = 44
-    DRIVE_SPEED = -150
-    PROPORTIONAL_GAIN = 1
-    threshold = (BLACK + WHITE) / 2
-    LLM.reset_angle(0)
-    while LLM.angle() >= angles:
-        deviation = Colorboy_left.reflection() - threshold
-        turn_rate = PROPORTIONAL_GAIN * deviation
-        robot.drive(DRIVE_SPEED, turn_rate)
-        wait(10)
-    ev3.speaker.beep()
-    robot.stop()
- 
-
- 
-
 def Gyro_Stright(distance_gyro):
     ev3.speaker.beep()
     degres = distance_gyro*-360
@@ -63,9 +43,9 @@ def Gyro_Stright(distance_gyro):
 
 
 
-def PID_Line_Following(Kp , Ki , Kd):
+def PID_Line_Following(Kp , Ki , Kd , PID_distance):
     ev3.speaker.beep()
-    #degres = PID_distance*-360
+    degres = PID_distance*-360
     Target = 45
     Error = 0
     Intgral = 0
@@ -81,7 +61,7 @@ def PID_Line_Following(Kp , Ki , Kd):
     Ki = 1.3
     Kd = 0.005
     ev3.speaker.beep()
-    while True:
+    while RLM.angle() >= degres:
         Error = Target-Colorboy_left.reflection() 
         KP = Error*Kp 
         Intgral = Intgral+Error*0.001
