@@ -27,6 +27,14 @@ robot.settings(-1000,-1000, 200, 200)
 
 
 
+#def Robot_starting_program():
+    #speaker.set_volume(70%,_all_)
+    #ev3.light.on(Color.RED)
+    #ev3.speaker.beep(500, 3000)
+    #ev3.light.off()
+    #speaker.say(Starting Program haiby get the fuck away)
+    #speaker.set_volume(10%,_all_)
+
 
 
 def Gyro_Stright(distance_gyro):
@@ -78,7 +86,6 @@ def PID_Line_Following(Kp , Ki , Kd , PID_distance):
 
     
 
-
 def Gyro_Turn_Right(angle):
     ev3.speaker.beep()
     Gyrogirl.reset_angle(0)
@@ -103,5 +110,16 @@ def Gyro_Turn_Left(angle):
     ev3.speaker.beep()
 
 
-
+def Main_Program():
+    while True:
+        if Button.DOWN in ev3.buttons.pressed():
+            print("Starting Progarm 01")
+        elif Buttom.RIGHT in ev3.buttons.pressed():
+            print("Starting Program 02")
+        elif Buttom.LEFT in ev3.buttons.pressed():
+            print("Starting Program 03")
+  
+    
+    
+    
 
