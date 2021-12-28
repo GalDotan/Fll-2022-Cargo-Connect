@@ -17,24 +17,10 @@ from core_funcsions import *
 
 
 
-
-
-#Robot_starting_program()
-
-
 def First_Run():
-    Gyro_Stright(1)
-    Gyro_Turn_Left(28)
-    Gyro_Stright(2.1)
-    Gyro_Turn_Right(-33)
     Gyro_Stright(2)
-    robot.straight(200)
-    
-
+    Gyro_Turn_Left(30)
+    Gyro_Stright(2)
 
 First_Run()
-
-
-
-
-
+ 

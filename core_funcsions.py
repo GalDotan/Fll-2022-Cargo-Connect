@@ -18,7 +18,7 @@ LLM = Motor(Port.B)
 RLM = Motor(Port.C)
 RMM = Motor (Port.D)
 LMM = Motor (Port.A)
-Gyroboy = GyroSensor(Port.S2)
+#Gyroboy = GyroSensor(Port.S2)
 Gyrogirl = GyroSensor(Port.S3)
 Colorboy_left = ColorSensor(Port.S1)
 Colorgirl_right = ColorSensor(Port.S4)
@@ -26,14 +26,6 @@ robot = DriveBase(LLM, RLM, wheel_diameter=60.2, axle_track=180.5)
 robot.settings(-1000,-1000, 200, 200)
 
 
-
-#def Robot_starting_program():
-    #speaker.set_volume(70%,_all_)
-    #ev3.light.on(Color.RED)
-    #ev3.speaker.beep(500, 3000)
-    #ev3.light.off()
-    #speaker.say(Starting Program haiby get the fuck away)
-    #speaker.set_volume(10%,_all_)
 
 
 
@@ -61,7 +53,7 @@ def PID_Line_Following(Kp , Ki , Kd , PID_distance):
     Derivative = 0
     Turn_Rate = 0
     Nag_Turn_Rate = 0
-    Drive_Speed = -150
+    Drive_Speed = -150  
     KP = 0
     KI = 0
     KD = 0
@@ -110,14 +102,6 @@ def Gyro_Turn_Left(angle):
     ev3.speaker.beep()
 
 
-def Main_Program():
-    while True:
-        if Button.DOWN in ev3.buttons.pressed():
-            print("Starting Progarm 01")
-        elif Buttom.RIGHT in ev3.buttons.pressed():
-            print("Starting Program 02")
-        elif Buttom.LEFT in ev3.buttons.pressed():
-            print("Starting Program 03")
   
     
     
