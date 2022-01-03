@@ -22,5 +22,7 @@ def First_Run():
     Gyro_Turn_Left(30)
     Gyro_Stright(2)
 
-First_Run()
- 
+
+
+
+

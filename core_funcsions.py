@@ -20,12 +20,10 @@ RMM = Motor (Port.D)
 LMM = Motor (Port.A)
 #Gyroboy = GyroSensor(Port.S2)
 Gyrogirl = GyroSensor(Port.S3)
-Colorboy_left = ColorSensor(Port.S1)
+#Colorboy_left = ColorSensor(Port.S1)
 Colorgirl_right = ColorSensor(Port.S4)
-robot = DriveBase(LLM, RLM, wheel_diameter=60.2, axle_track=180.5)
+robot = DriveBase(LLM, RLM, wheel_diameter=60, axle_track=127)
 robot.settings(-1000,-1000, 200, 200)
-
-
 
 
 
@@ -35,8 +33,8 @@ def Gyro_Stright(distance_gyro):
     RLM.reset_angle(0)
     Gyrogirl.reset_angle(0)    
     while RLM.angle() >= degres:
-        correction = (0 - Gyrogirl.angle())*2.5
-        correction = correction*-1
+        correction = (0 - Gyrogirl.angle())*1.8
+        correction = correction*1
         robot.drive(-250, correction)
     ev3.speaker.beep()
     robot.stop()
@@ -104,6 +102,15 @@ def Gyro_Turn_Left(angle):
 
   
     
-    
+def Drop_model():
+    RMM.run_angle(-1000, 70)
+    wait(100)
+    RMM.run_angle(-1000, -70)
+
+
+def Drop_box():
+    LMM.run_angle(-100000, 180)
+    wait(150)
+    LMM.run_angle(-100000, -180)
     
 
