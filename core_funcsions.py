@@ -41,10 +41,10 @@ def Gyro_Stright(distance_gyro):
 
 
 
-def PID_Line_Following(Kp , Ki , Kd , PID_distance):
+def PID_Line_Following(Kp=0.38 , Ki=1.3 , Kd=0.005 , PID_distance):
     ev3.speaker.beep()
     degres = PID_distance*-360
-    Target = 45
+    Target = 0
     Error = 0
     Intgral = 0
     Last_Error = 0
@@ -74,7 +74,38 @@ def PID_Line_Following(Kp , Ki , Kd , PID_distance):
     robot.stop()
     ev3.speaker.beep()
 
-    
+def PID_Gyro_Stright(Kp=0.38 , Ki=1.3 , Kd=0.005 , PID_Gyrodistance):
+    ev3.speaker.beep()
+    degres = PID_Gyrodistance*-360
+    Target = 45
+    Error = 0
+    Intgral = 0
+    Last_Error = 0
+    Derivative = 0
+    Turn_Rate = 0
+    Nag_Turn_Rate = 0
+    Drive_Speed = -150  
+    KP = 0
+    KI = 0
+    KD = 0
+    Kp = 0.38
+    Ki = 1.3
+    Kd = 0.005
+    Gyrogirl.reset_angle(0)
+    while RLM.angle() >= degres:
+        Error = Target-Gyrogirl.angle() 
+        KP = Error*Kp 
+        Intgral = Intgral+Error*0.001
+        KI = Intgral*Ki 
+        Derivative = Error-Last_Error 
+        Last_Error = Error
+        KD = Derivative*Kd 
+        Turn_Rate = KP+KD+KI
+        Nag_Turn_Rate = Turn_Rate*-1
+        robot.drive(Drive_Speed , Nag_Turn_Rate )
+        wait(1)
+    robot.stop()
+    ev3.speaker.beep()
 
 def Gyro_Turn_Right(angle):
     ev3.speaker.beep()
@@ -114,3 +145,8 @@ def Drop_box():
     LMM.run_angle(-100000, -180)
     
 
+def Arm_up():
+    RMM.run_angle(-1000, 70)
+
+def Arm_down():
+    RMM.run_angle(-1000, -70)
