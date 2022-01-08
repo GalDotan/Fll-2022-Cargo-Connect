@@ -26,4 +26,4 @@ def First_Run():
 
 
 
-L
+Gyro_turn_right(90)
