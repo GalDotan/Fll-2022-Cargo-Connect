@@ -18,17 +18,11 @@ LLM = Motor(Port.B)
 RLM = Motor(Port.C)
 RMM = Motor (Port.D)
 LMM = Motor (Port.A)
-#Gyroboy = GyroSensor(Port.S2)
 Gyrogirl = GyroSensor(Port.S3)
-#Colorboy_left = ColorSensor(Port.S1)
+Colorboy_left = ColorSensor(Port.S1)
 Colorgirl_right = ColorSensor(Port.S4)
 robot = DriveBase(LLM, RLM, wheel_diameter=60, axle_track=127)
 robot.settings(-1000,-1000, 200, 200)
-
-
-
-
-
 
 
 def PID_Line_Following(Kp , Ki, Kd  , PID_distance):
@@ -63,8 +57,8 @@ def PID_Line_Following(Kp , Ki, Kd  , PID_distance):
         wait(1)
     robot.stop()
     ev3.speaker.beep()
-
-def Gyro_Straight( PID_Gyrodistance):
+#Line following using 1 sensore and PID controller
+def Gyro_Straight(PID_Gyrodistance):
     ev3.speaker.beep()
     degres = PID_Gyrodistance*-360
     Target = 0
@@ -96,16 +90,45 @@ def Gyro_Straight( PID_Gyrodistance):
         wait(1)
     robot.stop()
     ev3.speaker.beep()
-
-def Gyro_turn_right(Target )
-    #Target = 0
+#Driving straight using 1 gyro sensore and POD controller
+def Gyro_turn_left(Target):
     Error = 0
     Intgral = 0
     Last_Error = 0
     Derivative = 0
     Turn_Rate = 0
     Nag_Turn_Rate = 0
-    Drive_Speed = -0 
+    Drive_Speed = 0
+    KP = 0
+    KI = 0
+    KD = 0
+    Kp = 2.8
+    Ki = 1.5
+    Kd = 0.005
+    Gyrogirl.reset_angle(0)
+    while Gyrogirl.angle() >= Target:
+        Error = Target-Gyrogirl.angle() 
+        KP = Error*Kp 
+        Intgral = Intgral+Error*0.001
+        KI = Intgral*Ki 
+        Derivative = Error-Last_Error 
+        Last_Error = Error
+        KD = Derivative*Kd 
+        Turn_Rate = KP+KD+KI
+        Nag_Turn_Rate = Turn_Rate*1
+        robot.drive(Drive_Speed , Nag_Turn_Rate )
+        wait(1)
+    robot.stop()
+    ev3.speaker.beep()
+#Turning right using 1 gyro sensore and PID controler
+def Gyro_turn_right(Target):
+    Error = 0
+    Intgral = 0
+    Last_Error = 0
+    Derivative = 0
+    Turn_Rate = 0
+    Nag_Turn_Rate = 0
+    Drive_Speed = 0
     KP = 0
     KI = 0
     KD = 0
@@ -127,36 +150,22 @@ def Gyro_turn_right(Target )
         wait(1)
     robot.stop()
     ev3.speaker.beep()
-
-
-def Gyro_Turn_Left(angle):
-    ev3.speaker.beep()
-    Gyrogirl.reset_angle(0)
-    while Gyrogirl.angle() <= angle:
-        RLM.run(120)
-        LLM.run(-120)
-    RLM.brake()
-    LLM.brake()
-    robot.stop()
-    ev3.speaker.beep()
-
-
-  
-    
+#Turning left using 1 gyro sensore and PID controler
 def Drop_model():
     RMM.run_angle(-1000, 70)
     wait(100)
     RMM.run_angle(-1000, -70)
-
-
+#Droping M01 model and food delivery
 def Drop_box():
     LMM.run_angle(-100000, 180)
     wait(150)
     LMM.run_angle(-100000, -180)
-    
-
+ #   
+#Droping the home delivery to the door
 def Arm_up():
     RMM.run_angle(-1000, 70)
-
+#Moing the main arm up
 def Arm_down():
     RMM.run_angle(-1000, -70)
+#Moving main arm down  
+

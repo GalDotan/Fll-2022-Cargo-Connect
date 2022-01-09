@@ -10,20 +10,10 @@ from pybricks.media.ev3dev import SoundFile, ImageFile
 
 # This program requires LEGO EV3 MicroPython v2.0 or higher.
 # Click "Open user guide" on the EV3 extension tab for more information.
-
+#importing files
 from core_funcsions import *
 
 
 
-
-
-def First_Run():
-    Gyro_Stright(2)
-    Gyro_Turn_Left(30)
-    Gyro_Stright(2)
-
-
-
-
-
-Gyro_turn_right(90)
+Gyro_Straight(1.5)
+Gyro_turn
