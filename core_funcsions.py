@@ -22,7 +22,7 @@ Gyrogirl = GyroSensor(Port.S3)
 Colorboy_left = ColorSensor(Port.S1)
 Colorgirl_right = ColorSensor(Port.S4)
 robot = DriveBase(LLM, RLM, wheel_diameter=60, axle_track=127)
-robot.settings(-1000,-1000, 200, 200)
+robot.settings(-800,-800, 200, 200)
 
 
 def PID_Line_Following(Kp , Ki, Kd  , PID_distance):
@@ -61,6 +61,7 @@ def PID_Line_Following(Kp , Ki, Kd  , PID_distance):
 def Gyro_Straight(PID_Gyrodistance):
     ev3.speaker.beep()
     degres = PID_Gyrodistance*-360
+    LLM.reset_angle(0)
     Target = 0
     Error = 0
     Intgral = 0
@@ -73,8 +74,9 @@ def Gyro_Straight(PID_Gyrodistance):
     KI = 0
     KD = 0
     Kp = 2.8
-    Ki = 1.5
+    Ki = 1.3
     Kd = 0.005
+    RLM.reset_angle(0)
     Gyrogirl.reset_angle(0)
     while RLM.angle() >= degres:
         Error = Target-Gyrogirl.angle() 

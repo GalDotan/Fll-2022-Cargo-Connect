@@ -15,5 +15,14 @@ from core_funcsions import *
 
 
 
-Gyro_Straight(1.5)
-Gyro_turn
+Gyro_Straight(1.2)
+wait(2)
+Gyro_turn_right (90)
+wait(2)
+Gyro_Straight(5.2)
+wait(2)
+robot.straight(60)
+wait(3)
+Gyro_Straight(1)
+wait(1)
+robot.straight(60)
