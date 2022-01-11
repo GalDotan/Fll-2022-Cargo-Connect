@@ -15,14 +15,41 @@ from core_funcsions import *
 
 
 
-Gyro_Straight(1.2)
-wait(2)
-Gyro_turn_right (90)
-wait(2)
-Gyro_Straight(5.2)
-wait(2)
-robot.straight(60)
-wait(3)
-Gyro_Straight(1)
-wait(1)
-robot.straight(60)
+def Long_run():
+    Reset_gyro()
+    Gyro_Straight(1.2,0)
+    wait(1)
+    Gyro_turn_right (90)
+    wait(1)
+    robot.straight(170)
+    wait(1)
+    Gyro_Straight(5.6,90)
+    wait(1)
+    robot.straight(160)
+    wait(1)
+    Gyro_Straight(1.4,90)
+    wait(1)
+    Gyro_turn_left(0)
+    wait(1)
+    robot.straight(400)
+    Reset_gyro()
+    Drop_box()
+    Gyro_Straight(2,0)
+    Gyro_turn_right(95)
+    Gyro_Straight(0.3,95)
+    Drop_model()
+    Arm_up()
+    Gyro_Straight(1.2,95)
+    Arm_down()
+    robot.straight(100)
+    wait(1)
+    Gyro_turn_left(0)
+
+
+
+
+
+ev3.speaker.beep()
+ev3.speaker.beep()
+wait(1000)
+Long_run()

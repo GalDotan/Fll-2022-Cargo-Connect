@@ -19,50 +19,26 @@ RLM = Motor(Port.C)
 RMM = Motor (Port.D)
 LMM = Motor (Port.A)
 Gyrogirl = GyroSensor(Port.S3)
-Colorboy_left = ColorSensor(Port.S1)
-Colorgirl_right = ColorSensor(Port.S4)
+Gyroboy = GyroSensor(Port.S2)
+#Colorboy_left = ColorSensor(Port.S1)
+#Colorgirl_right = ColorSensor(Port.S4)
 robot = DriveBase(LLM, RLM, wheel_diameter=60, axle_track=127)
-robot.settings(-800,-800, 200, 200)
+robot.settings(-700, -700, 200, 200)
 
 
-def PID_Line_Following(Kp , Ki, Kd  , PID_distance):
-    ev3.speaker.beep()
-    degres = PID_distance*-360
-    Target = 0
-    Error = 0
-    Intgral = 0
-    Last_Error = 0
-    Derivative = 0
-    Turn_Rate = 0
-    Nag_Turn_Rate = 0
-    Drive_Speed = -150  
-    KP = 0
-    KI = 0
-    KD = 0
-    Kp = 0.38
-    Ki = 1.3
-    Kd = 0.005
-    ev3.speaker.beep()
-    while RLM.angle() >= degres:
-        Error = Target-Colorboy_left.reflection() 
-        KP = Error*Kp 
-        Intgral = Intgral+Error*0.001
-        KI = Intgral*Ki 
-        Derivative = Error-Last_Error 
-        Last_Error = Error
-        KD = Derivative*Kd 
-        Turn_Rate = KP+KD+KI
-        Nag_Turn_Rate = Turn_Rate*-1
-        robot.drive(Drive_Speed , Nag_Turn_Rate )
-        wait(1)
+def Reset_motores_angle():
     robot.stop()
-    ev3.speaker.beep()
-#Line following using 1 sensore and PID controller
-def Gyro_Straight(PID_Gyrodistance):
+    RLM.reset_angle(0)
+    LLM.reset_angle(0)
+#reset motore angle
+def Reset_gyro():
+    Gyrogirl.reset_angle(0)
+#reset gyroes
+def Gyro_Straight(PID_Gyrodistance, Target):
+    robot.stop()
+    RLM.reset_angle(0)
     ev3.speaker.beep()
     degres = PID_Gyrodistance*-360
-    LLM.reset_angle(0)
-    Target = 0
     Error = 0
     Intgral = 0
     Last_Error = 0
@@ -76,11 +52,8 @@ def Gyro_Straight(PID_Gyrodistance):
     Kp = 2.8
     Ki = 1.3
     Kd = 0.005
-    RLM.reset_angle(0)
-    Gyrogirl.reset_angle(0)
     while RLM.angle() >= degres:
-        Error = Target-Gyrogirl.angle() 
-        KP = Error*Kp 
+        Error = Target-Gyrogirl.angle()
         Intgral = Intgral+Error*0.001
         KI = Intgral*Ki 
         Derivative = Error-Last_Error 
@@ -91,6 +64,7 @@ def Gyro_Straight(PID_Gyrodistance):
         robot.drive(Drive_Speed , Nag_Turn_Rate )
         wait(1)
     robot.stop()
+    RLM.reset_angle(0)
     ev3.speaker.beep()
 #Driving straight using 1 gyro sensore and POD controller
 def Gyro_turn_left(Target):
@@ -107,7 +81,6 @@ def Gyro_turn_left(Target):
     Kp = 2.8
     Ki = 1.5
     Kd = 0.005
-    Gyrogirl.reset_angle(0)
     while Gyrogirl.angle() >= Target:
         Error = Target-Gyrogirl.angle() 
         KP = Error*Kp 
@@ -137,9 +110,8 @@ def Gyro_turn_right(Target):
     Kp = 2.8
     Ki = 1.5
     Kd = 0.005
-    Gyrogirl.reset_angle(0)
     while Gyrogirl.angle() <= Target:
-        Error = Target-Gyrogirl.angle() 
+        Error = Target-Gyrogirl.angle()
         KP = Error*Kp 
         Intgral = Intgral+Error*0.001
         KI = Intgral*Ki 
@@ -154,9 +126,9 @@ def Gyro_turn_right(Target):
     ev3.speaker.beep()
 #Turning left using 1 gyro sensore and PID controler
 def Drop_model():
-    RMM.run_angle(-1000, 70)
-    wait(100)
-    RMM.run_angle(-1000, -70)
+    RMM.run_angle(-140, 70)
+    wait(1500)
+    RMM.run_angle(-140, -70)
 #Droping M01 model and food delivery
 def Drop_box():
     LMM.run_angle(-100000, 180)
@@ -170,4 +142,7 @@ def Arm_up():
 def Arm_down():
     RMM.run_angle(-1000, -70)
 #Moving main arm down  
+
+
+
 
