@@ -64,3 +64,11 @@ Parameters:  None
 Arm_down()
 Description: Moving the main arm down
 Parameters:  None
+
+Reset_gyro()
+Description: Reset the measured angle of the gyro
+Parameters:  None
+
+Reset_motores_angle()
+Description: Reset the measured angle of the motore
+Parameters:  None
