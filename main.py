@@ -10,28 +10,20 @@ from pybricks.media.ev3dev import SoundFile, ImageFile
 
 # This program requires LEGO EV3 MicroPython v2.0 or higher.
 # Click "Open user guide" on the EV3 extension tab for more information.
-#importing files
+# Importing files:
 from core_funcsions import *
 
 
 
-def Long_run():
+def Red_run():
     Reset_gyro()
-    wait(150)
     Gyro_Straight(1.1,0)
-    wait(1)
     Gyro_turn_right (90)
-    wait(1)
     robot.straight(170)
-    wait(1)
     Gyro_Straight(5.6,90)
-    wait(1)
     robot.straight(160)
-    wait(1)
     Gyro_Straight(1.4,90)
-    wait(1)
     Gyro_turn_left(0)
-    wait(1)
     robot.straight(400)
     Reset_gyro()
     Drop_box()
@@ -44,44 +36,32 @@ def Long_run():
     Arm_down()
     wait(150)
     robot.straight(100)
-    wait(1)
     Gyro_turn_left(0)
-    wait(1)
     Gyro_Straight(2.3, 0)
-    wait(1)
     Gyro_turn_right(90)
-    wait(1)
     Gyro_Straight(0.55, 90)
-    wait(1)
     robot.straight(100)
-    wait(1)
     Gyro_turn_right(180)
-    wait(1)
     robot.straight(400)
-    wait(1)
     Reset_gyro()
-    wait(1)
     Gyro_Straight(2, 0)
-    wait(1)
     Gyro_turn_right(90)
-    wait(1)
     Gyro_Straight(1.8,90)
-    wait(1)
     Gyro_turn_right(215)
-    wait(1)
     Gyro_turn_left(90)
     Gyro_Straight(6,55)
 
+def Green_run():
+    Reset_gyro()
+
+def Gray_run():
+    Reset_gyro()
+
+def Orange_run():
+    Reset_gyro()
+
+def Purple_run():
+    Reset_gyro()
 
 
 
-    
-
-
-
-
-
-
-
-
-Long_run()
