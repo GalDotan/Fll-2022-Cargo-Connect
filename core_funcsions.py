@@ -19,11 +19,11 @@ RLM = Motor(Port.C)
 RMM = Motor (Port.D)
 LMM = Motor (Port.A)
 Gyrogirl = GyroSensor(Port.S3)
-Gyroboy = GyroSensor(Port.S2)
+#Gyroboy = GyroSensor(Port.S2)
 #Colorboy_left = ColorSensor(Port.S1)
 #Colorgirl_right = ColorSensor(Port.S4)
 robot = DriveBase(LLM, RLM, wheel_diameter=60, axle_track=127)
-robot.settings(-700, -700, 200, 200)
+robot.settings(-700, -700, 150, 150)
 
 
 def Reset_motores_angle():
@@ -45,7 +45,7 @@ def Gyro_Straight(PID_Gyrodistance, Target):
     Derivative = 0
     Turn_Rate = 0
     Nag_Turn_Rate = 0
-    Drive_Speed = -230 
+    Drive_Speed = -250 
     KP = 0
     KI = 0
     KD = 0
@@ -91,7 +91,7 @@ def Gyro_turn_left(Target):
         KD = Derivative*Kd 
         Turn_Rate = KP+KD+KI
         Nag_Turn_Rate = Turn_Rate*1
-        robot.drive(Drive_Speed , Nag_Turn_Rate )
+        robot.drive(0, Nag_Turn_Rate )
         wait(1)
     robot.stop()
     ev3.speaker.beep()
@@ -127,7 +127,7 @@ def Gyro_turn_right(Target):
 #Turning left using 1 gyro sensore and PID controler
 def Drop_model():
     RMM.run_angle(-140, 70)
-    wait(1500)
+    wait(100)
     RMM.run_angle(-140, -70)
 #Droping M01 model and food delivery
 def Drop_box():

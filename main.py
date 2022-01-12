@@ -17,7 +17,8 @@ from core_funcsions import *
 
 def Long_run():
     Reset_gyro()
-    Gyro_Straight(1.2,0)
+    wait(150)
+    Gyro_Straight(1.1,0)
     wait(1)
     Gyro_turn_right (90)
     wait(1)
@@ -39,17 +40,48 @@ def Long_run():
     Gyro_Straight(0.3,95)
     Drop_model()
     Arm_up()
-    Gyro_Straight(1.2,95)
+    Gyro_Straight(1.3,95)
     Arm_down()
+    wait(150)
     robot.straight(100)
     wait(1)
     Gyro_turn_left(0)
+    wait(1)
+    Gyro_Straight(2.3, 0)
+    wait(1)
+    Gyro_turn_right(90)
+    wait(1)
+    Gyro_Straight(0.55, 90)
+    wait(1)
+    robot.straight(100)
+    wait(1)
+    Gyro_turn_right(180)
+    wait(1)
+    robot.straight(400)
+    wait(1)
+    Reset_gyro()
+    wait(1)
+    Gyro_Straight(2, 0)
+    wait(1)
+    Gyro_turn_right(90)
+    wait(1)
+    Gyro_Straight(1.8,90)
+    wait(1)
+    Gyro_turn_right(215)
+    wait(1)
+    Gyro_turn_left(90)
+    Gyro_Straight(6,55)
+
+
+
+
+    
 
 
 
 
 
-ev3.speaker.beep()
-ev3.speaker.beep()
-wait(1000)
+
+
+
 Long_run()
