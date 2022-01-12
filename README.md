@@ -19,8 +19,8 @@ Gyro Sensore - Port 3
 
 
 Robot Seetings :
-Linear Speed -1000
-Linear Acceleration -1000
+Linear Speed -700
+Linear Acceleration -700
 Turn Speed 200
 Turn Acceleration 200
 
@@ -72,4 +72,7 @@ Parameters:  None
 Reset_motores_angle()
 Description: Reset the measured angle of the motore
 Parameters:  None
+<<<<<<< HEAD
 
+=======
+>>>>>>> 44bf12fa5e050991f4a57617e4dd8c7f97ad557c
