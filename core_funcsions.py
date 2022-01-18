@@ -19,7 +19,6 @@ RLM = Motor(Port.C)
 RMM = Motor (Port.D)
 LMM = Motor (Port.A)
 Gyrogirl = GyroSensor(Port.S3)
-#Gyroboy = GyroSensor(Port.S2)
 #Colorboy_left = ColorSensor(Port.S1)
 #Colorgirl_right = ColorSensor(Port.S4)
 robot = DriveBase(LLM, RLM, wheel_diameter=60, axle_track=127)
@@ -37,7 +36,6 @@ def Reset_gyro():
 def Gyro_Straight(PID_Gyrodistance, Target):
     robot.stop()
     RLM.reset_angle(0)
-    ev3.speaker.beep()
     degres = PID_Gyrodistance*-360
     Error = 0
     Intgral = 0
@@ -65,7 +63,6 @@ def Gyro_Straight(PID_Gyrodistance, Target):
         wait(1)
     robot.stop()
     RLM.reset_angle(0)
-    ev3.speaker.beep()
 #Driving straight using 1 gyro sensore and POD controller
 def Gyro_turn_left(Target):
     Error = 0
@@ -94,7 +91,6 @@ def Gyro_turn_left(Target):
         robot.drive(0, Nag_Turn_Rate )
         wait(1)
     robot.stop()
-    ev3.speaker.beep()
 #Turning right using 1 gyro sensore and PID controler
 def Gyro_turn_right(Target):
     Error = 0
@@ -123,25 +119,44 @@ def Gyro_turn_right(Target):
         robot.drive(Drive_Speed , Nag_Turn_Rate )
         wait(1)
     robot.stop()
-    ev3.speaker.beep()
 #Turning left using 1 gyro sensore and PID controler
-def Drop_model():
+
+
+
+
+#Red drees
+def Red_Drop_model():
     RMM.run_angle(-140, 70)
     wait(100)
     RMM.run_angle(-140, -70)
 #Droping M01 model and food delivery
-def Drop_box():
+def Rae_Drop_box():
     LMM.run_angle(-100000, 180)
     wait(150)
     LMM.run_angle(-100000, -180)
  #   
 #Droping the home delivery to the door
-def Arm_up():
+def Red_Arm_up():
     RMM.run_angle(-1000, 70)
 #Moing the main arm up
-def Arm_down():
+def Red_Arm_down():
     RMM.run_angle(-1000, -70)
 #Moving main arm down  
+
+
+
+#Green drees
+#Droping M01 model and food delivery
+def Green_Arm_down():
+    LMM.run_angle(-100000, 500)
+    
+def Green_Arm_up():
+    LMM.run_angle(-100000, -500)
+
+def Green_Arm_dwn():
+    LMM.run_angle(-100000, 100)
+    
+  
 
 
 

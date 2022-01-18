@@ -53,6 +53,10 @@ def Red_run():
 
 def Green_run():
     Reset_gyro()
+    Gyro_Straight(3.8, 0)
+    Gyro_turn_left(-25)
+    Gyro_Straight(0.07, -35)
+    RMM.run_angle(-140, 200)
 
 def Gray_run():
     Reset_gyro()
@@ -64,4 +68,18 @@ def Purple_run():
     Reset_gyro()
 
 
+Reset_gyro()
+Gyro_Straight(2.8,0)
+Gyro_turn_left(-30)
+Gyro_Straight(1.1,-30)
+Green_Arm_down()
+Gyro_turn_left(-90)
+Green_Arm_up()
+robot.straight(90)
+Gyro_turn_right(45)
+Green_Arm_down()
+Gyro_Straight(0.5,30)
+Green_Arm_dwn()
+Gyro_turn_right(58)
+Green_Arm_up()
 
