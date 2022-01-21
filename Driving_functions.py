@@ -11,14 +11,11 @@ from Object_creation import *
 
 def Gyroline_speed(max_speed, PID_Gyrodistance, Target):
     watch = StopWatch()
-    degres = PID_Gyrodistance*-360
-        while RLM.angle() >= degres:
-            Ct = watch.time()
-            max_v = max_speed / 2 * -1
-            V_Speed = Ct * max_v
+    degrees = PID_Gyrodistance*-360
+        while RLM.angle() >= degrees:
             robot.stop()
             RLM.reset_angle(0)
-            degres = PID_Gyrodistance*-360
+            degrees = PID_Gyrodistance*-360
             Error = 0
             Intgral = 0
             Last_Error = 0
@@ -32,7 +29,10 @@ def Gyroline_speed(max_speed, PID_Gyrodistance, Target):
             Kp = 3
             Ki = 0
             Kd = 0
-            while RLM.angle() >= degres:
+            while RLM.angle() >= degrees:
+                Ct = watch.time()
+                max_v = max_speed / 2 * -1
+                V_Speed = Ct * max_v
                 Error = Target-Gyrogirl.angle()
                 Intgral = Intgral+Error*0.001
                 KI = Intgral*Ki 
@@ -52,7 +52,7 @@ def Reset_gyro():
 def Gyro_Straight(PID_Gyrodistance, Target, V_Speed):
     robot.stop()
     RLM.reset_angle(0)
-    degres = PID_Gyrodistance*-360
+    degrees = PID_Gyrodistance*-360
     Error = 0
     Intgral = 0
     Last_Error = 0
@@ -63,10 +63,10 @@ def Gyro_Straight(PID_Gyrodistance, Target, V_Speed):
     KP = 0
     KI = 0
     KD = 0
-    Kp = 3
+    kp = 3
     Ki = 0
     Kd = 0
-    while RLM.angle() >= degres:
+    while RLM.angle() >= degrees:
         Error = Target-Gyrogirl.angle()
         Intgral = Intgral+Error*0.001
         KI = Intgral*Ki 
@@ -91,12 +91,12 @@ def Gyro_turn_left(Target):
     KP = 0
     KI = 0
     KD = 0
-    Kp = 2.8
+    kp = 2.8
     Ki = 1.5
     Kd = 0.005
     while Gyrogirl.angle() >= Target:
         Error = Target-Gyrogirl.angle() 
-        KP = Error*Kp 
+        R_Kp = Error*R_Kp 
         Intgral = Intgral+Error*0.001
         KI = Intgral*Ki 
         Derivative = Error-Last_Error 
@@ -124,7 +124,7 @@ def Gyro_turn_right(Target):
     Kd = 0.005
     while Gyrogirl.angle() <= Target:
         Error = Target-Gyrogirl.angle()
-        KP = Error*Kp 
+        R_Kp = Error*R_Kp 
         Intgral = Intgral+Error*0.001
         KI = Intgral*Ki 
         Derivative = Error-Last_Error 
