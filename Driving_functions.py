@@ -136,7 +136,8 @@ def Gyro_turn_right(Target):
         wait(1)
     robot.stop()
 
-def Reset_motores_angle(anglee):
+def Reset_motors_angle(anglee):
     robot.stop()
     RLM.reset_angle(anglee)
     LLM.reset_angle(anglee)
+    
