@@ -9,7 +9,9 @@ from pybricks.media.ev3dev import SoundFile, ImageFile
 from Object_creation import *
 
 
-def Gyroline_speed(max_speed, PID_Gyrodistance, Target):
+
+
+def Gyroline_W_acceleration(max_speed, PID_Gyrodistance, Target):
     watch = StopWatch()
     degrees = PID_Gyrodistance*-360
         while RLM.angle() >= degrees:
@@ -41,7 +43,7 @@ def Gyroline_speed(max_speed, PID_Gyrodistance, Target):
                 KD = Derivative*Kd 
                 Turn_Rate = KP+KD+KI
                 Nag_Turn_Rate = Turn_Rate*1
-                robot.drive(Drive_Speed , Nag_Turn_Rate )
+                robot.drive(Drive_Speed , Nag_Turn_Rate ) 
                 wait(1)
             robot.stop()
             RLM.reset_angle(0)
