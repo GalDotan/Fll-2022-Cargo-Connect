@@ -10,9 +10,9 @@ from Object_creation import *
 
 
 
-
 def Gyroline_W_acceleration(max_speed, PID_Gyrodistance, Target):
     watch = StopWatch()
+    watch.reset()
     degrees = PID_Gyrodistance*-360
     robot.stop()
     RLM.reset_angle(0)
@@ -22,19 +22,25 @@ def Gyroline_W_acceleration(max_speed, PID_Gyrodistance, Target):
     Last_Error = 0
     Derivative = 0
     Turn_Rate = 0
+    Drive_Speed = 0
     Nag_Turn_Rate = 0
-    Drive_Speed = V_Speed
     KP = 0  
     KI = 0
     KD = 0
-    Kp = 3
-    Ki = 0
-    Kd = 0
+    Kp = 1.7
+    Ki = 1.3
+    Kd = 0.005
     while RLM.angle() >= degrees:
         Ct = watch.time()
-        max_v = max_speed / 2 * -1
+        max_v = max_speed / 300 * -1
         V_Speed = Ct * max_v
-        Error = Target-Gyrogirl.angle()
+        max_speed_P = max_speed*-1
+        if V_Speed <= max_speed_P :
+            Drive_Speed = max_speed_P
+        else:
+            Drive_Speed = V_Speed
+        Error = Target-Gyrogirl.angle() 
+        KP = Error*Kp
         Intgral = Intgral+Error*0.001
         KI = Intgral*Ki 
         Derivative = Error-Last_Error 
@@ -50,7 +56,7 @@ def Gyroline_W_acceleration(max_speed, PID_Gyrodistance, Target):
 def Reset_gyro():
     Gyrogirl.reset_angle(0)
 
-def Gyro_Straight(PID_Gyrodistance, Target, V_Speed):
+def Gyro_Straight(PID_Gyrodistance, Target,):
     robot.stop()
     RLM.reset_angle(0)
     degrees = PID_Gyrodistance*-360
@@ -92,12 +98,12 @@ def Gyro_turn_left(Target):
     KP = 0
     KI = 0
     KD = 0
-    kp = 2.8
+    Kp = 2.8
     Ki = 1.5
     Kd = 0.005
     while Gyrogirl.angle() >= Target:
         Error = Target-Gyrogirl.angle() 
-        R_Kp = Error*R_Kp 
+        KP = Error*Kp 
         Intgral = Intgral+Error*0.001
         KI = Intgral*Ki 
         Derivative = Error-Last_Error 
@@ -125,7 +131,7 @@ def Gyro_turn_right(Target):
     Kd = 0.005
     while Gyrogirl.angle() <= Target:
         Error = Target-Gyrogirl.angle()
-        R_Kp = Error*R_Kp 
+        Kp = Error*Kp 
         Intgral = Intgral+Error*0.001
         KI = Intgral*Ki 
         Derivative = Error-Last_Error 
