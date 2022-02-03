@@ -14,6 +14,8 @@ from Purple_run import *
 from Orange_run import *
 from Driving_functions import *
 
-Green_run()
+#Green_run()
+Reset_gyro()
+Gyrolineb_W_acceleration(10, 3, 0)
 
 
