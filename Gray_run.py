@@ -9,3 +9,8 @@ from pybricks.media.ev3dev import SoundFile, ImageFile
 from Object_creation import *
 from Object_creation import *
 from Driving_functions import *
+
+
+def Gray_run():
+    Gyroline_f()
+    Gyroline_b()
