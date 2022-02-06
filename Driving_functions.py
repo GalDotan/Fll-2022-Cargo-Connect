@@ -8,7 +8,7 @@ from pybricks.robotics import DriveBase
 from pybricks.media.ev3dev import SoundFile, ImageFile
 from Object_creation import *
 
-def Gyrolineb_W_acceleration(max_speed, PID_Gyrodistance, Target):
+def Gyroline_b(max_speed, PID_Gyrodistance, Target):
     watch = StopWatch()
     watch.reset()
     robot.stop()
@@ -52,7 +52,7 @@ def Gyrolineb_W_acceleration(max_speed, PID_Gyrodistance, Target):
     robot.stop()
     RLM.reset_angle(0)
 
-def Gyroline_W_acceleration(max_speed, PID_Gyrodistance, Target):
+def Gyroline_f(max_speed, PID_Gyrodistance, Target):
     watch = StopWatch()
     watch.reset()
     degrees = PID_Gyrodistance*-360
