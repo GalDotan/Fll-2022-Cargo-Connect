@@ -29,15 +29,12 @@ def Gyroline_b(max_speed, PID_Gyrodistance, Target):
     Kd = 0.005
     while RLM.angle() <= degrees:
         Ct = watch.time()
-        max_v = max_speed / 300 * 1
+        max_v = max_speed / 290 * 1
         V_Speed = Ct * max_v
-        print("Vspeed is ",V_Speed)
-        print("Max speed is ",max_speed)
         if V_Speed >= max_speed :
             Drive_Speed = max_speed
         else:
             Drive_Speed = V_Speed
-        print("Drive speed is is ",Drive_Speed)
         Error = Target-Gyrogirl.angle() 
         KP = Error*Kp
         Intgral = Intgral+Error*0.001
@@ -58,7 +55,6 @@ def Gyroline_f(max_speed, PID_Gyrodistance, Target):
     degrees = PID_Gyrodistance*-360
     robot.stop()
     RLM.reset_angle(0)
-    degrees = PID_Gyrodistance*-360
     Error = 0
     Intgral = 0
     Last_Error = 0
@@ -72,6 +68,7 @@ def Gyroline_f(max_speed, PID_Gyrodistance, Target):
     Kp = 1.7
     Ki = 1.3
     Kd = 0.005
+    print("Gyroline_f started")
     while RLM.angle() >= degrees:
         Ct = watch.time()
         max_v = max_speed / 300 * -1
@@ -90,8 +87,10 @@ def Gyroline_f(max_speed, PID_Gyrodistance, Target):
         KD = Derivative*Kd 
         Turn_Rate = KP+KD+KI
         Nag_Turn_Rate = Turn_Rate*1
+        print(Drive_Speed)
         robot.drive(Drive_Speed , Nag_Turn_Rate ) 
         wait(1)
+    print("Gyroline_f finished")
     robot.stop()
     RLM.reset_angle(0)
 

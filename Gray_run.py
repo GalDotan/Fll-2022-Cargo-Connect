@@ -12,5 +12,8 @@ from Driving_functions import *
 
 
 def Gray_run():
-    Gyroline_f()
-    Gyroline_b()
+    Reset_gyro()
+    Gyroline_f(400, 2.1 , 0 )
+    Gyroline_f(200,0.1,0)
+    Gyroline_b(200, 0.3, 0)
+    Gyroline_b(400, 1.8 , 90)

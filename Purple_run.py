@@ -11,6 +11,7 @@ from Object_creation import *
 from Driving_functions import *
 
 def Purple_run():
-    Gyroline_f()
+    Reset_gyro()
+    Gyroline_f(300, 5 , 0)
     wait(5)
-    Gyroline_b()
+    Gyroline_b(300, 5 , 0)
