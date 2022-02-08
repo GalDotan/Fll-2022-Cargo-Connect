@@ -16,7 +16,12 @@ from Driving_functions import *
 from Pick_Me_run import *
 
 
-Pick_Me()
+ev3.screen.clear()
+ev3.screen.draw_text(50, 30, "MA1201", text_color=Color.BLACK, background_color=None)
+wait(100000)
+#MA1201 = Image(ImageFile.MA1201)
+
+#ev3.screen.load_image(MA1201)
 
 
 

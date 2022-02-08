@@ -15,23 +15,21 @@ from Orange_run import *
 from dev_mode import *
 
 def Pick_Me():
+    ev3.screen.clear()
     while True :
             if Button.DOWN in ev3.buttons.pressed():
                 ev3.speaker.beep(frequency=500, duration=200)
                 #Gray_run()
             elif Button.RIGHT in ev3.buttons.pressed():
-                ev3.light.on(Color.GREEN)
                 ev3.speaker.beep(frequency=500, duration=200)
                 #Green_run()
             elif Button.UP in ev3.buttons.pressed():
-                ev3.light.on(Color.RED)
                 ev3.speaker.beep(frequency=500, duration=200)
                 #Red_run()
             elif Button.LEFT in ev3.buttons.pressed():
-                ev3.light.on(Color.ORANGEk)
                 ev3.speaker.beep(frequency=500, duration=200)
                 #Purple_run()    
-            ev3.light.on(Color.BLUE)
+
 
 
 
