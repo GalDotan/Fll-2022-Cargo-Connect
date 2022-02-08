@@ -7,16 +7,12 @@ from pybricks.tools import wait, StopWatch, DataLog
 from pybricks.robotics import DriveBase
 from pybricks.media.ev3dev import SoundFile, ImageFile
 from Object_creation import *
-from Green_run import *
-from Red_run import *
-from Gray_run import *
-from Purple_run import *
-from Orange_run import *
+from Object_creation import *
 from Driving_functions import *
-from Pick_Me_run import *
 
-
-Pick_Me()
-
-
-
+def dev_mode():
+    Bat_V = ev3.battery.voltage()
+    Bat_A = ev3.battery.current()
+    print("Battery voltage is ",Bat_V)
+    print("Battery current is ",Bat_A)
+    
