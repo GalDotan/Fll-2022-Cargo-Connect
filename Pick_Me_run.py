@@ -16,6 +16,7 @@ from dev_mode import *
 
 def Pick_Me():
     ev3.screen.clear()
+    
     while True :
             if Button.DOWN in ev3.buttons.pressed():
                 ev3.speaker.beep(frequency=500, duration=200)

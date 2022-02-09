@@ -11,29 +11,30 @@ from Driving_functions import *
 
 
 def Green_Arm_down():  
-    RMM.run_target(-1000,1500 )
+    RMM.run_target(-1000,00 )
 #Moving main arm down  
 def Green_Arm_up():
-    RMM.run_target(-1000,0 )    
+    RMM.run_target(-1000,-1500 )    
 #Moving the main arm up
 def Green_Arm_dwn():
-    RMM.run_target(-1000, 1420)
+    RMM.run_target(-1000,-120)
 #Moving main arm almost down 
 def Green_run():
     Reset_gyro()
     RMM.reset_angle(0)
-    ev3.speaker.beep()
     Green_Arm_dwn()
-    Gyroline_f(200, 2.2, 0)
-    Gyro_turn_left(-70)
-    Gyro_turn_right(0)
-    Gyroline_f(200, 1, 0)
-    Gyro_turn_right(40)
-    Gyroline_f(200, 1.4, 40)
-    Gyro_turn_right(55)
-    Gyroline_f(200, 0.31 ,55)
+    ev3.speaker.beep()
+    Gyroline_f(200, 3.2, 0)
+    Gyro_turn_right(26)
+    Gyroline_f(200, 0.89, 26)
+    ev3.speaker.beep()
+    Gyro_turn_right(57)
+    Gyroline_f(200, 0.31 ,57)
     Green_Arm_up()
     ev3.speaker.beep()
-    Gyro_turn_left(-50)
-    robot.straight(90)
-    Gyro_turn_left(-30)
+    Gyroline_b(600, 4 , 45) 
+    #Gyro_turn_left(-50)
+    #Gyroline_b(20,90,-50)
+    #Gyro_turn_left(-30) 
+    # Above this is the code for the green helicopter thingy, do not enable for now.
+    
