@@ -17,6 +17,8 @@ from Pick_Me_run import *
 
 
 
+Pick_Me()
+
 
 
 

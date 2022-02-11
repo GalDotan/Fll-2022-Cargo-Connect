@@ -59,8 +59,8 @@ def Red_run():
     Reset_gyro()
     Gyroline_f(200,2, 0)
     Gyro_turn_right(90)
-    Gyroline_f(200,1.8,90)
+    Gyroline_f(200,2,90)
     Gyro_turn_right(215)
     Gyro_turn_left(90)
-    Gyroline_f(200,6,55)
+    Gyroline_f(200,6.5,70)
     
