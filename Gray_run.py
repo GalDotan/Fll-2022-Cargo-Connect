@@ -11,7 +11,7 @@ from Object_creation import *
 from Driving_functions import *
 
 
-def Gray_run():
+def Run_1():
     Reset_gyro()
     Gyroline_f(400, 2.1 , 0 )
     Gyroline_f(200,0.1,0)

@@ -20,7 +20,7 @@ def Green_Arm_up():
 def Green_Arm_dwn():
     RMM.run_target(-1000,-120)
 #Moving main arm almost down 
-def Green_run():
+def Run_2():
     Reset_gyro()
     RMM.reset_angle(0)
     Green_Arm_dwn()
@@ -30,10 +30,10 @@ def Green_run():
     Gyroline_f(200, 0.89, 26)
     ev3.speaker.beep()
     Gyro_turn_right(57)
-    Gyroline_f(200, 0.31 ,57)
+    Gyroline_f(200, 0.4 ,57)
     Green_Arm_up()
     ev3.speaker.beep()                                                                          
-    Gyroline_b(600, 4 , 45) 
+    Gyroline_b(600, 4.32 , 45) 
     #Gyro_turn_left(-50)
     #Gyroline_b(20,90,-50)
     #Gyro_turn_left(-30) 
