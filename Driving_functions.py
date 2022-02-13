@@ -70,7 +70,6 @@ def Gyroline_f(max_speed, PID_Gyrodistance, Target):
     Kp = 1.7
     Ki = 1.3
     Kd = 0.005
-    print("Gyroline_f started")
     while RLM.angle() >= degrees:
         Ct = watch.time()
         max_v = max_speed / 300 * -1
@@ -89,10 +88,8 @@ def Gyroline_f(max_speed, PID_Gyrodistance, Target):
         KD = Derivative*Kd 
         Turn_Rate = KP+KD+KI
         Nag_Turn_Rate = Turn_Rate*1
-        print(Drive_Speed)
         robot.drive(Drive_Speed , Nag_Turn_Rate ) 
         wait(1)
-    print("Gyroline_f finished")
     robot.stop()
     RLM.reset_angle(0)
 

@@ -38,14 +38,20 @@ def Pick_Me():
                 pic = "Gray Run"
                 wait(1000)
             elif button.CENTER in ev3.buttons.pressed():
+                pic = "MA"
                 if x == 1 :
                     Green_run()
+                    print("Green Run started")
                 elif x == 2 :
                     Red_run()
+                    print("Red Run started")
                 elif x == 3 :
-                    Gray_run()               
+                    Gray_run() 
+                    print("Gray Run started")              
                 elif x == 4 :
                     Purple_run()
+                    print("Purple Run started")
+                    
                     
                 
             
