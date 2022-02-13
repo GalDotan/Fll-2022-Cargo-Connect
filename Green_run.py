@@ -20,7 +20,7 @@ def Green_Arm_up():
 def Green_Arm_dwn():
     RMM.run_target(-1000,-120)
 #Moving main arm almost down 
-def Run_2():
+def Green_run():
     Reset_gyro()
     RMM.reset_angle(0)
     Green_Arm_dwn()
@@ -34,8 +34,4 @@ def Run_2():
     Green_Arm_up()
     ev3.speaker.beep()                                                                          
     Gyroline_b(600, 4.32 , 45) 
-    #Gyro_turn_left(-50)
-    #Gyroline_b(20,90,-50)
-    #Gyro_turn_left(-30) 
-    # Above this is the code for the green helicopter thingy, do not enable for now.
     

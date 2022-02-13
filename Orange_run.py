@@ -7,13 +7,11 @@ from pybricks.tools import wait, StopWatch, DataLog
 from pybricks.robotics import DriveBase
 from pybricks.media.ev3dev import SoundFile, ImageFile
 from Object_creation import *
-from Object_creation import *
 from Driving_functions import *
 
-
-def Gray_run():
+def Orange_run():
+    LMM.reset_angle(0)
     Reset_gyro()
-    Gyroline_f(400, 2.1 , 0 )
-    Gyroline_f(200,0.1,0)
-    Gyroline_b(200, 0.3, 0)
-    Gyroline_b(400, 1.8 , 90)
+    Gyroline_f(200 , 4.5 , 0)
+    LMM.run_angle(300, 180)
+    Gyroline_b(200 , 6 , 0)
