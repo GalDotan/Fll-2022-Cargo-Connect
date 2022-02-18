@@ -11,13 +11,12 @@ from Object_creation import *
 from Driving_functions import *
 
 def Red_Drop_model():
-    RMM.run_angle(-140, 70)
+    RMM.run_angle(-140, 80)
 
 #Droping M01 model and food delivery
 def Red_Drop_box():
-    LMM.run_angle(-100000, 180)
-    wait(150)
-    LMM.run_angle(-100000, -180)
+    LMM.run_angle(-100000,75)
+    
  #   
 #Droping the home delivery to the door
 def Red_Arm_up():
@@ -32,12 +31,11 @@ def Red_run():
     Reset_gyro()
     Gyroline_f(200,1.5,0)
     Gyro_turn_right (90)
-    robot.straight(170)
-    Gyroline_f(200,5.6,90)
+    Gyroline_f(200,5,90)
     robot.straight(160)
-    Gyroline_f(200,1.5,90)
+    Gyroline_f(200,1.55,90)
     Gyro_turn_left(0)
-    robot.straight(400)
+    Gyroline_b(150,2,0)
     Reset_gyro()
     Red_Drop_box()
     Gyroline_f(200,2.1,0)
@@ -51,16 +49,16 @@ def Red_run():
     robot.straight(80)
     Gyro_turn_left(0)
     Gyroline_f(200,2.5, 0)
-    Gyro_turn_right(87)
+    Gyro_turn_right(84)
     Gyroline_f(200,0.55, 90)
     robot.straight(100)
     Gyro_turn_right(180)
     robot.straight(400)
     Reset_gyro()
-    Gyroline_f(200,2, 0)
+    Gyroline_f(200,2.3, 0)
     Gyro_turn_right(90)
     Gyroline_f(200,2,90)
     Gyro_turn_right(215)
     Gyro_turn_left(90)
-    Gyroline_f(200,6.5,55)
+    Gyroline_f(200,6.5,70)
     

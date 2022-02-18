@@ -16,28 +16,32 @@ from Orange_run import *
 
 
 def Pick_Me():
-    x = 0 
     ev3.screen.clear()
-    pic = "MA"
     while True :
+            pic = "MA"
             ev3.screen.draw_image(0,0,pic)
             if Button.DOWN in ev3.buttons.pressed():
-                x = 1
                 pic = "Green Run"
+                ev3.screen.draw_image(0,0,pic)
+                wait(1000)
                 Green_run()
             elif Button.UP in ev3.buttons.pressed():
-                x = 2
                 pic = "Red Run"
+                ev3.screen.draw_image(0,0,pic)
+                wait(1000)
                 Red_run()
             elif Button.LEFT in ev3.buttons.pressed():
-                x = 3
                 pic = "Purple Run"
-                Purple_run
+                ev3.screen.draw_image(0,0,pic)
+                wait(1000)
+                Purple_run()
             elif Button.RIGHT in ev3.buttons.pressed():
-                x = 4
                 pic = "Gray Run"    
+                ev3.screen.draw_image(0,0,pic)
+                wait(1000)
                 Gray_run()
             elif Button.CENTER in ev3.buttons.pressed():
+                wait(1000)
                 Orange_run()
                     
                     
