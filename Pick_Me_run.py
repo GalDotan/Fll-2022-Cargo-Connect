@@ -25,25 +25,34 @@ def Pick_Me():
                 ev3.screen.draw_image(0,0,pic)
                 wait(1000)
                 Green_run()
+                RMM.brake()
+                LMM.brake()
             elif Button.UP in ev3.buttons.pressed():
                 pic = "Red Run"
                 ev3.screen.draw_image(0,0,pic)
                 wait(1000)
                 Red_run()
+                RMM.brake()
+                LMM.brake()
             elif Button.LEFT in ev3.buttons.pressed():
                 pic = "Purple Run"
                 ev3.screen.draw_image(0,0,pic)
                 wait(1000)
                 Purple_run()
+                RMM.brake()
+                LMM.brake()
             elif Button.RIGHT in ev3.buttons.pressed():
                 pic = "Gray Run"    
                 ev3.screen.draw_image(0,0,pic)
                 wait(1000)
                 Gray_run()
+                RMM.brake()
+                LMM.brake()
             elif Button.CENTER in ev3.buttons.pressed():
                 wait(1000)
                 Orange_run()
-                    
+                RMM.brake()
+                LMM.brake()
                     
                 
             

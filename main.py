@@ -10,14 +10,13 @@ from Object_creation import *
 from Green_run import *
 from Red_run import *
 from Gray_run import *
-
 from Orange_run import *
 from Driving_functions import *
 from Pick_Me_run import *
 
 
 
-Red_run()
+Pick_Me()
 
 
 
